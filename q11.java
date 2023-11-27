@@ -1,25 +1,20 @@
 public class q11 {
-    public void moveZeroes(int[] nums) {
-        int len=nums.length;
-        if(len==1){
-            return;
+    public boolean isSubsequence(String s, String t) {
+        int l1=s.length();
+        int l2=t.length();
+        if(l1<1){
+            return true;
         }
-        int zst=0;
-        boolean z=true;
-        if(nums[0]==0){
-            z=false;
-        }
-        for(int i=1;i<nums.length;i++){
-            if(nums[i]==0 && z==true){
-                zst=i;
-                z=false;
+        int i=0;int j=0;
+        while(i<l2){
+            if(s.charAt(j)==t.charAt(i)){
+                j++;
             }
-            if(nums[i]!=0 && nums[i-1]==0){
-                int swap=nums[i];
-                nums[i]=nums[zst];
-                nums[zst]=swap;
-                zst++;
+            i++;
+            if(j==l1){
+                return true;
             }
         }
+        return false;
     }
 }

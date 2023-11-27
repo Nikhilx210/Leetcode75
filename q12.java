@@ -1,20 +1,18 @@
 public class q12 {
-    public boolean isSubsequence(String s, String t) {
-        int l1=s.length();
-        int l2=t.length();
-        if(l1<1){
-            return true;
-        }
-        int i=0;int j=0;
-        while(i<l2){
-            if(s.charAt(j)==t.charAt(i)){
-                j++;
-            }
-            i++;
-            if(j==l1){
-                return true;
+
+    public int maxArea(int[] height) {
+        int i = 0;
+        int j = height.length - 1;
+        int ans = Integer.MIN_VALUE;
+        while (i < j) {
+            ans = Integer.max(ans, (j - i) * (Integer.min(height[i], height[j])));
+            if (height[i] <= height[j]) {
+                i++;
+            } else {
+                j--;
             }
         }
-        return false;
+        return ans;
     }
+
 }

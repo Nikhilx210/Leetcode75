@@ -1,18 +1,24 @@
-public class q13 {
+import java.util.Arrays;
 
-    public int maxArea(int[] height) {
-        int i = 0;
-        int j = height.length - 1;
-        int ans = Integer.MIN_VALUE;
-        while (i < j) {
-            ans = Integer.max(ans, (j - i) * (Integer.min(height[i], height[j])));
-            if (height[i] <= height[j]) {
-                i++;
-            } else {
-                j--;
+public class q13 {
+    public int maxOperations(int[] nums, int k) {
+        Arrays.sort(nums);
+        int len = nums.length;
+        int l = 0;
+        int r = len - 1;
+        int ans = 0;
+        while (l < r) {
+            if (nums[l] + nums[r] == k) {
+                ans++;
+                l++;
+                r--;
+            } else if (nums[l] + nums[r] < k) {
+                l++;
+            } else if (nums[l] + nums[r] > k) {
+                r--;
             }
         }
         return ans;
-    }
 
+    }
 }

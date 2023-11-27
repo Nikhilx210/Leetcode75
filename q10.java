@@ -1,5 +1,3 @@
-import java.util.Arrays;
-
 public class q10 {
     public void moveZeroes(int[] nums) {
         int len=nums.length;
@@ -8,6 +6,9 @@ public class q10 {
         }
         int zst=0;
         boolean z=true;
+        if(nums[0]==0){
+            z=false;
+        }
         for(int i=1;i<nums.length;i++){
             if(nums[i]==0 && z==true){
                 zst=i;
@@ -19,7 +20,6 @@ public class q10 {
                 nums[zst]=swap;
                 zst++;
             }
-            System.out.println(Arrays.toString(nums));
         }
     }
 }
